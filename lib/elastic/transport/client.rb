@@ -290,13 +290,13 @@ module Elastic
       #
       def __auto_detect_adapter
         case
-        when defined?(::Patron)
+        when defined?(Faraday::Adapter::Patron)
           :patron
-        when defined?(::Typhoeus)
+        when defined?(Faraday::Adapter::Typhoeus)
           :typhoeus
-        when defined?(::HTTPClient)
+        when defined?(Faraday::Adapter::HTTPClient)
           :httpclient
-        when defined?(::Net::HTTP::Persistent)
+        when defined?(Faraday::Adapter::NetHttpPersistent)
           :net_http_persistent
         else
           ::Faraday.default_adapter
